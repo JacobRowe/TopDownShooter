@@ -8,6 +8,13 @@ public class SmoothLookAtTarget2D : MonoBehaviour
     public float smoothing = 5.0f;
     public float adjustmnetAngle = 0.0f;
 
+    private void Start()
+    {
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        target = player;
+
+    }
     void Update()
     {
         if (target != null)
@@ -17,5 +24,9 @@ public class SmoothLookAtTarget2D : MonoBehaviour
             Quaternion newRot = Quaternion.Euler(new Vector3(0.0f, 0.0f, rotZ + adjustmnetAngle));
             transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * smoothing);
         }
+    }
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }
