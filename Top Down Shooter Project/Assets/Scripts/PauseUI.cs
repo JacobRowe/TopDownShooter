@@ -1,24 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameUI : MonoBehaviour
+public class PauseUI : MonoBehaviour
 {
-    public Slider healthBar;
-    public Text scoreText;
-
-    public int playerScore = 0;
-
-    //pause UI 
     GameObject[] pauseObjects;
 
     private void Start()
     {
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
-        //hidePaused();
+        hidePauseMenu();
     }
     private void Update()
     {
@@ -37,33 +30,9 @@ public class GameUI : MonoBehaviour
             hidePauseMenu();
         }
     }
-
-    private void OnEnable()
-    {
-        Player.OnUpdateHealth += UpdateHealthBar;
-        AddScore.OnSendScore += UpdateScore;
-    }
-    private void OnDisable()
-    {
-        Player.OnUpdateHealth += UpdateHealthBar;
-        AddScore.OnSendScore += UpdateScore;
-    }
-
-    private void UpdateHealthBar(int health)
-    {
-        healthBar.value = health;
-    }
-
-    private void UpdateScore(int theScore)
-    {
-        playerScore += theScore;
-        scoreText.text = "SCORE: " + playerScore.ToString();
-    }
-
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        playerScore = 0;
     }
     public void controlPauseMenu()
     {
