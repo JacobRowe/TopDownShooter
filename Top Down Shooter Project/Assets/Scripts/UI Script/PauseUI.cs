@@ -39,7 +39,7 @@ public class PauseUI : MonoBehaviour
     public void PauseGame()
     {
         pauseUI.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0.00000000000001f;
         gamePaused = true;
         Debug.Log("PAUSE");
     }
