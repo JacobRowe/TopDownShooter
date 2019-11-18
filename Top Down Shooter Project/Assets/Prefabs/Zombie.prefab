@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 2745313332981511803, guid: 47fb95f2699993840b4bf816e9c181f7,
     type: 3}
-  adjustmentAngle: 0
+  adjustmentAngle: 90
 --- !u!114 &5185381129214669958
 MonoBehaviour:
   m_ObjectHideFlags: 0
