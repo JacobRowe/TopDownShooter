@@ -15,7 +15,7 @@ public class MoveTowardsObject : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (target != null)
         {
