@@ -46,11 +46,12 @@ public class PauseUI : MonoBehaviour
     public void QuitToMenu()
     {
         SceneManager.LoadScene("Start Screen");
+        gamePaused = false;
         Debug.Log("QUITMENU");
     }
     public void QuitToDesktop()
     {
-        Debug.Log("QUIT");
         Application.Quit();
+        Debug.Log("QUIT");
     }
 }
