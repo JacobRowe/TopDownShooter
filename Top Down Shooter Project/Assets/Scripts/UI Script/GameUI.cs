@@ -45,8 +45,8 @@ public class GameUI : MonoBehaviour
     }
     private void OnDisable()
     {
-        Player.OnUpdateHealth += UpdateHealthBar;
-        AddScore.OnSendScore += UpdateScore;
+        Player.OnUpdateHealth -= UpdateHealthBar;
+        AddScore.OnSendScore -= UpdateScore;
     }
 
     private void UpdateHealthBar(int health)
@@ -57,6 +57,7 @@ public class GameUI : MonoBehaviour
     private void UpdateScore(int theScore)
     {
         playerScore += theScore;
+        print("!" + scoreText);
         scoreText.text = "SCORE: " + playerScore.ToString();
     }
 

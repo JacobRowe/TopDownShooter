@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
         isFiring = false;
     }
 
-    private void Fire()
+    private void FireSmall()
     {
         isFiring = true;
         Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
@@ -34,7 +34,14 @@ public class Weapon : MonoBehaviour
         {
             if (!isFiring)
             {
-                Fire();
+                FireSmall();
+            }
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            if (!isFiring)
+            {
+                FireSmall();
             }
         }
     }
