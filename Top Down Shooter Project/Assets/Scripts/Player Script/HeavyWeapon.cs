@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Weapon : MonoBehaviour
+public class HeavyWeapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    public float fireTime = 0.5f;
+    public float fireTime = 0.2f;
 
     private bool isFiring = false;
 
@@ -15,12 +16,12 @@ public class Weapon : MonoBehaviour
         isFiring = false;
     }
 
-    private void FireSmall()
+    private void Fire()
     {
         isFiring = true;
         Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 
-        if (GetComponent<AudioSource>() !=null)
+        if (GetComponent<AudioSource>() != null)
         {
             GetComponent<AudioSource>().Play();
         }
@@ -34,14 +35,7 @@ public class Weapon : MonoBehaviour
         {
             if (!isFiring)
             {
-                FireSmall();
-            }
-        }
-        else if (Input.GetMouseButton(1))
-        {
-            if (!isFiring)
-            {
-                FireSmall();
+                Fire();
             }
         }
     }
