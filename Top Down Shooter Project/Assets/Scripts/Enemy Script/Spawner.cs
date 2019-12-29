@@ -6,14 +6,26 @@ public class Spawner : MonoBehaviour
 {
     public GameObject prefabToSpawn;
     public float adjustmentAngle = 0;
+    public int spawnCount, spawnLimit;
 
     public void Spawn()
     {
-        Vector3 roatationInDegrees = transform.eulerAngles;
-        roatationInDegrees.z += adjustmentAngle;
+        if (spawnCount == spawnLimit)
+        {
+            
+        }
+        else
+        {
+            Vector3 roatationInDegrees = transform.eulerAngles;
+            roatationInDegrees.z += adjustmentAngle;
 
-        Quaternion rotationInRadians = Quaternion.Euler(roatationInDegrees);
+            Quaternion rotationInRadians = Quaternion.Euler(roatationInDegrees);
 
-        Instantiate(prefabToSpawn, transform.position, rotationInRadians);
+            Instantiate(prefabToSpawn, transform.position, rotationInRadians);
+
+            spawnCount++;
+        }
+
+
     }
 }
