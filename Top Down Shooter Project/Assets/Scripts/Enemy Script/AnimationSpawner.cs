@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class AnimationSpawner : MonoBehaviour
 {
-    public GameObject prefabToSpawn;
+    public GameObject prefabOnDieToSpawn;
+    public GameObject prefabOnHurtToSpawn;
     public float adjustmentAngle = 0;
 
-    public void Spawn()
+    public void SpawnDie()
     {
         Vector3 roatationInDegrees = transform.eulerAngles;
         roatationInDegrees.z += adjustmentAngle;
 
         Quaternion rotationInRadians = Quaternion.Euler(roatationInDegrees);
 
-        Instantiate(prefabToSpawn, transform.position, rotationInRadians);
+        Instantiate(prefabOnDieToSpawn, transform.position, rotationInRadians);
+
+        Debug.Log("Animation");
+    }
+
+    public void SpawnHurt()
+    {
+        Vector3 roatationInDegrees = transform.eulerAngles;
+        roatationInDegrees.z += adjustmentAngle;
+
+        Quaternion rotationInRadians = Quaternion.Euler(roatationInDegrees);
+
+        Instantiate(prefabOnHurtToSpawn, transform.position, rotationInRadians);
 
         Debug.Log("Animation");
     }
