@@ -8,6 +8,8 @@ public class TimerEvent : MonoBehaviour
     public float time = 1;
     public bool repeat = false;
     public UnityEvent onTimerComplete;
+
+
     private void Start()
     {
         if (repeat)
@@ -19,7 +21,7 @@ public class TimerEvent : MonoBehaviour
             Invoke("OnTimerComplete", time);
         }
     }
-    private void OnTimerComplete()
+    public void OnTimerComplete()
     {
         onTimerComplete.Invoke();
     }
