@@ -7,6 +7,6 @@ public class GameOver : MonoBehaviour
 {
     public void EndGame()
     {
-        SceneManager.LoadScene("End Screen");
+        SceneManager.LoadScene("Game Over Screen");
     }
 }
